@@ -1,0 +1,25 @@
+{
+  "name": "revocation-contracts",
+  "version": "1.0.0",
+  "description": "Privacy-preserving supply chain certificate revocation using zk-SNARKs and smart contracts",
+  "scripts": {
+    "compile": "npx hardhat compile",
+    "test": "npx hardhat test",
+    "deploy:sepolia": "npx hardhat run scripts/deploy.js --network sepolia"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.9.6",
+    "big-integer": "^1.6.52",
+    "circomlibjs": "^0.1.7"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-chai-matchers": "^2.0.1",
+    "@nomicfoundation/hardhat-ethers": "^3.0.4",
+    "@nomicfoundation/hardhat-network-helpers": "^1.1.2",
+    "@nomicfoundation/hardhat-toolbox": "^3.0.0",
+    "@nomicfoundation/hardhat-verify": "^1.1.1",
+    "ethers": "^6.7.1",
+    "hardhat": "^2.29.1",
+    "snarkjs": "^0.7.6"
+  }
+}

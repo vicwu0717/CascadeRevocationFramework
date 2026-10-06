@@ -1,0 +1,20 @@
+{
+  "name": "certificate-verifier-circuits",
+  "version": "1.0.0",
+  "description": "Circom circuits for privacy-preserving certificate verification",
+  "private": true,
+  "scripts": {
+    "compile":         "bash scripts/1_compile.sh",
+    "setup":           "bash scripts/2_setup.sh",
+    "gen-input":       "node scripts/3_gen_input.js",
+    "gen-proof":       "node scripts/4_gen_proof.js",
+    "export-verifier": "bash scripts/5_export_verifier.sh",
+    "all":             "npm run compile && npm run setup && npm run gen-input && npm run gen-proof && npm run export-verifier"
+  },
+  "dependencies": {
+    "circomlib":    "^2.0.5",
+    "circomlibjs":  "^0.1.7",
+    "snarkjs":      "^0.7.0",
+    "ffjavascript": "^0.3.0"
+  }
+}
