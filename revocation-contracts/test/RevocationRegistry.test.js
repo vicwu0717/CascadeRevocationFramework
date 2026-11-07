@@ -915,6 +915,17 @@ describe("10. Gas: revokeCascade benchmark", function () {
     expect(gasUsed).to.be.lt(8_000_000, "depth-20 cascade exceeded 8 M gas");
   });
 
+  it("linear depth 32 (33 nodes, seeds 1301-1333) -- MAX_CASCADE_DEPTH", async function () {
+    const { registry, issuerA } = await loadFixture(authorizedFixture);
+    const ids = await buildLinearChain(registry, issuerA, DID_A, 1301, 32);
+    const { gasUsed, gasPerNode } = await measureCascade(
+      registry, issuerA, DID_A, ids[0], ids
+    );
+    gasReport.push({ label: "Linear 32", topology: "linear", depth: 32, nodes: ids.length, gasUsed, gasPerNode });
+
+    expect(gasUsed).to.be.lt(30_000_000, "depth-32 cascade exceeded block gas limit");
+  });
+
   // ── Star topology (depth=1, high fan-out) ─────────────────────────────────
 
   it("star  depth  1  (11 nodes, fan-out 10, seeds 1301-1311)", async function () {
